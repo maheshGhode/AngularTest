@@ -1,0 +1,49 @@
+
+
+<div class="row main">
+    <div class="col-md-6 offset-md-3 d-flex justify-content-center align-items-center">
+        <div class="card form">
+            <div class="card-body">
+                <form [formGroup]="Loginform" (ngSubmit)="OnLoginform()">
+                    <div class="form-group">
+                        <label for="email">
+                            <strong>
+                                Email*
+                            </strong>
+                        </label>
+                        <input type="text" class="form-control" id="email" formControlName="email">
+                        <ng-container *ngIf="f['email']?.invalid && f['email']?.touched">
+                            <span *ngIf="f['email']?.touched && f['email']?.invalid">
+                                Email field is required
+                            </span>
+                        </ng-container>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">
+                            <strong>
+                                Password* 
+                            </strong>
+                        </label>
+                        <div class="input-group">
+                            <input formControlName="password" type="{{ show ? 'text' : 'password' }}"
+                                class="form-control" id="password">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="togglePassword" (click)="toggleBtn()">
+                                    <i [ngClass]="show ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                                </span> 
+                            </div>
+                        </div>
+                        <ng-container class="d-block" *ngIf="f['password'].dirty && f['password'].invalid">
+                            <span *ngIf="f['password'].getError('pattern') !== null">
+                                It should be contain 8 numbers only
+                            </span>
+                        </ng-container>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit" [disabled]="Loginform.invalid">LogIn</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

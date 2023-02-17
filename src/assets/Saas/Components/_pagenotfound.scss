@@ -1,0 +1,21 @@
+
+
+@import '../Abstract/variables';
+@import '../Abstract/mixins';
+@import '../Base/typographi';
+@import '../utility/utility';
+
+
+
+
+
+
+
+.img{
+    width: 100%;
+    height : 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
